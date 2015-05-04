@@ -1,16 +1,14 @@
 %p#notice= notice
 
+%h1= @lesson.title
 %p
-  %b Title:
-  = @lesson.title
+  :markdown
+    #{@lesson.body}
 %p
-  %b Body:
-  = @lesson.body
-%p
-  %b Happened at:
+  %b Le cours a eu lieu :
   = @lesson.happened_at
 %p
-  %b Professor:
+  %b Professeur :
   = @lesson.professor
 
 = link_to 'Edit', edit_lesson_path(@lesson)

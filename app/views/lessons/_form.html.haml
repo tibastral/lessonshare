@@ -11,7 +11,16 @@
     = f.text_field :title
   .field
     = f.label :body
-    = f.text_area :body
+    .markdownify-menu{"data-target" => "markdown"}
+      %a.btn--insert{"data-prefix" => "*", "data-suffix" => "*", :href => "javascript:void(0)"} i
+      %a.btn--insert{"data-prefix" => "**", "data-suffix" => "**", :href => "javascript:void(0)"} b
+      %a.btn--insert{"data-prefix" => "# ", :href => "javascript:void(0)"} h1
+      %a.btn--insert{"data-prefix" => "## ", :href => "javascript:void(0)"} h2
+      %a.btn--insert{"data-prefix" => "> ", :href => "javascript:void(0)"} quote
+      %a.btn--insert{"data-prefix" => "* ", :href => "javascript:void(0)"} list
+      %a.btn--insert{"data-prefix" => "1. ", :href => "javascript:void(0)"} 1.
+      %a.btn--insert{"data-type" => "link", :href => "javascript:void(0)"} link
+    = f.text_area :body, class: 'markdown', id: 'markdown'
   .field
     = f.label :happened_at
     = f.datetime_select :happened_at
